@@ -1,0 +1,138 @@
+
+
+
+
+
+
+        #page-wrap { 
+		width: 80%;
+		margin-left:10%;
+		margin-top:2%;
+		 padding-top:-30px;
+		 
+		 border-radius:10px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+	
+		 }
+       
+		
+      
+		 
+		 
+     
+        
+      
+		
+		
+		    #ie-test { position: relative; width: 100%; }
+			
+			
+			
+        #boxLinks { 
+		list-style: none; 
+		overflow: hidden;
+		border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+	margin-left:-40px;
+		padding-top:10px; }
+        #boxLinks li {  
+		display: inline;
+		
+		margin-left:-50px;
+		padding-left:-50px;
+		border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */ }
+        #boxLinks li a {
+		 position: relative;
+   top: 0;
+   -webkit-transition: 200ms all linear;
+   -moz-transition: 200ms all linear;
+   -ms-transition: 200ms all linear;
+   transition: 200ms all linear;
+		 padding: 5px 10px;
+		  color: black;
+		  background-color: #FFFFFF;
+		   text-decoration: none;
+		    border: 1px solid #ccc;
+			 float: left; 
+			 display: block;
+			  margin-left: -1px;
+			   position: relative;
+			   border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+			    left: 1px; }
+				#boxLinks li a.active, #boxLinks li a:hover.active{
+				 background-color: #FFFFFF;
+   color: #666666;
+   position: relative;
+   font-weight: normal;
+   text-decoration: none;
+   z-index: 2;
+				}
+			
+        #boxLinks li a:hover { 
+		box-shadow: 0px 0px 20px #CCCCCC; /* CSS3 */
+    -moz-box-shadow: 0px 0px 20px #CCCCCC; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #CCCCCC; /* Safari, Chrome */
+		 
+   color: #000000;
+   font-weight: normal;
+   text-decoration: none;
+   top: -4px;
+   }
+		
+		
+        #box { 
+		height: 500px;
+		width:100%;
+	 background: aliceblue;
+	   box-shadow: 0px 0px 20px #999; /* CSS3 */
+    -moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+		border: 1px solid #ccc;
+		 overflow: hidden;
+	 margin-top:36px;
+		 padding: 0px 0px 0px 20px;
+		 padding-left:-20px;
+		  position: absolute;
+		  
+		  top: -1px; }
+        .box {
+		
+		 display: none;
+		 width:115%;
+		  height: 500px;
+		  box-shadow: 0px 0px 20px #999; /* CSS3 */
+    -moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+		border: 1px solid #ccc;
+		  background-color: #999999;
+		  border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+	padding-top:-4px;
+	overflow:auto; 
+	margin-left:-20px;
+		  display: block;
+		   position: relative; 
+		  overflow-x: hidden;
+		   }
+        #box1:target, 
+		#box2:target, 
+		#box3:target {
+		 border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+	
+		display: block;
+		 }
