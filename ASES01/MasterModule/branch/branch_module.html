@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Meerut Institute of Technology</title>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Meerut Institute of Technology</title>
+<link rel="stylesheet" href="../../css/allinterface.css" type="text/css" /> 
+<link rel="stylesheet" href="../../css/jquery-ui.css" />
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/jquery-latest.js"></script>
+     <script src="../../lib/sweet-alert.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../lib/sweet-alert.css">   
+<script src="script_branchmaster.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="../../jquery.confirm/jquery.confirm.css" />
+	
+	
+     <script type="text/javascript" src="../../jquery.confirm/jquery.js"></script>
+        <script type="text/javascript" src="../../jquery.confirm/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../jquery.confirm/confirm.js"></script>
+<script> 
+$.ajax({
+        url:"counter_branch_master.php",
+        type:"POST",
+        data:{},
+        success:function(data){
+          data++;
+            $('#branch_id').val(data);
+			 
+            
+        }
+       });
+function showTable(str) {
+  if (str.length==0) { 
+    document.getElementById("viewTable").innerHTML="";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("viewTable").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("POST","view1_branch_master.php",true);
+
+
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send();
+
+}
+function populateCourse()
+    {
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() 
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+          {
+            document.getElementById("course_id").innerHTML=xmlhttp.responseText;
+          }
+        }
+      
+      xmlhttp.open("POST","PopulateCourse.php",true);
+      
+      xmlhttp.send();
+    }
+    function call2() {
+			populateCourse();
+			showTable("hello");    
+	
+}
+</script>
+</head>
+
+<body onload=call2();> 
+
+<div class="block1" style="height:150px;">
+    <form method="POST"> 
+   
+      <input class=" sbutton logout" style="" type="submit" value="Log Out" name="B1"></p>
+	  <h2 style=" font-size: 30px" style="text-align:center; padding-left:10%"> Assignment Submission and Evaluation System</h2>
+   <input class="ff"type="text" style=" margin-top:-25px; text-align:center; font-weight:bolder" value="Meerut Institute of Technology"/ >
+       <h3 style=" text-align:center; font-size:24px; margin-top:-1px">BRANCH MASTER MODULE</h3>
+</div>
+  <br />
+  <table width="97%" class="block2">
+  <tr>
+    <td width="141">BRANCH ID</td>
+    <td style="width: 101px">
+  <input class="dis" type="text" name="branch_id" size="24" style="height: 22px" id="branch_id" DISABLED/></td>
+    <td style="width: 176px">COURSE NAME&nbsp;</td>
+    
+    <td width="284"><select name="course_id" id="course_id">
+					<option></option>
+                      
+					 <option value="course_id">Please Wait </option>
+					
+					</select></td>
+  </tr>
+  <tr>
+    <td> BRANCH ABBREVATION</td>
+    <td style="width: 101px"><input type="text" name="branch_abbriviation" id="branch_abbriviation" size="25" /></td>
+    <td style="width: 176px">BRANCH NAME </td>
+    <td><input type="text" name="branch_name" size="25" id="branch_name" /></td>
+    
+  </tr>
+  
+  <tr>
+  <td><span class="auto-style3">SECTIONS&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+  <td style="width: 101px"><select name="sections" id="sections">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					</select> </td>
+  <td style="width: 176px">IS ACTIVE ?</td>
+  <td style="width: 101px" id='is_active_container'><input checked="checked" name="is_active" class="is_active" id='is_active_yes' type="radio" value="V1" style="margin-left:-30px; margin-right:60px; height:15px; width: 120px;"  />YES
+				<input name="is_active" class="is_active" id='is_active_no' type="radio" value="V1" style="margin-left:80px; margin-right:60px; height:18px; width: 156px;">NO</td>
+  </tr>
+  
+  </table>
+	                                                 
+	
+   <div class="block3">
+<div class="resetallbutton">
+	<a class="but" href="#confirm"><button class="sbutton">Back</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="sbutton" name="Reset1"  type="reset">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class=" sbutton" name="submit" type="submit"  id="submit1" />Submit</button></p>
+   </div></div>
+
+<br>
+<div class="block4" id="viewTable">
+</div><br>
+</form>
+<div id="confirm" class="confirmBox">
+<h1>Exit Confirmation</h1>
+<p>You are about to exit this page. <br />Do you want to Continue?</p>
+<div id="confirmButtons">
+<a class="button blue" href="../../home/home.html">
+Yes
+<span></span></a>
+<a id="no" class="button gray" href="#">
+No
+<span></span></a>
+
+</div></div>	
+<script src="../../js/jquery.min.js"></script>
+<script src="../../jquery.confirm/jquery.confirm.js" ></script>
+
+</body>
+
+</html>

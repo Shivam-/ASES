@@ -1,0 +1,95 @@
+$(document).ready(function(){
+var checkbox_a=0;
+var checkbox_b=0;
+var checkbox_c=0;
+var checkbox_d=0;
+var option_a=0;
+var option_b=0;
+var option_c=0;
+var option_d=0;
+var tru_id=0;
+var fals_id=0;
+/*$("input[type='checkbox']").click(function () {
+if($(this).attr('name')=='checkbox-a' && $(this).attr('checked')==true){
+alert("It works");
+}
+});*/
+$(document).on('click','#checkbox_a',function(){
+	checkbox_a= 1;
+	alert(checkbox_a);
+});	
+$(document).on('click','#checkbox_b',function(){
+	checkbox-b= 1;
+	 
+});	
+$(document).on('click','#checkbox_c',function(){
+	checkbox-c= 1;
+});	
+$(document).on('click','#checkbox_d',function(){
+	 checkbox-d= 1;
+	 
+});
+$(document).on('click','#tru',function(){
+	 tru_id= 1;
+	 alert(tru_id);
+});
+$(document).on('click','#fals',function(){
+	 fals_id= 0;
+	 alert(fals_id);
+});	
+$("#submit").click(function(){
+//document.querySelector('button#submit').onclick = function(){	  
+var option_a = $("#option_a").val();
+var option_b = $("#option_b").val();
+var option_c = $("#option_c").val();
+var option_d = $("#option_d").val();
+var ques_no = $("#ques_no").val();
+var ques_text= $("#ques_text").val();
+var max_marks = $("#max_marks").val(); 
+alert(1);
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = 'option_a='+option_a + '&option_b='+ option_b + '&option_c='+ option_c + '&option_d='+ option_d+ '&ques_no='+ ques_no+ '&ques_text='+ques_text + '&max_marks='+max_marks+ '&checkbox-a='+ checkbox-a+ '&checkbox-b=='+ clg_city_id+ '&clg_country_id1='+ clg_country_id+ '&is_active1='+ is_active;
+
+if(college_code==''||clg_name==''||clg_address_line==''||clg_mail==''||clg_contact==''||clg_director==''||clg_state_id==''||clg_pincode==''||clg_city_id==''||clg_country_id==''||is_active>1||is_active<0) 
+{     
+swal("Please Fill All Fields"," ","error") 
+}
+ else
+ if(formload==1)
+{
+	// AJAX Code To Alter Form.
+$.ajax({
+type: "POST",
+url: "alter_college_master.php",
+data: dataString,
+cache: false,
+success: function(result){
+
+swal(result," ","success") 
+}
+});
+}
+else  
+{
+// AJAX Code To Submit Form.
+$.ajax({
+type: "POST",
+url: "entry_college_master.php",
+data: dataString,
+cache: false,
+success: function(result){
+result = result.split(',');
+result1=result[0];
+flag=result[1];
+if(flag==1)
+{swal(result1," ","success") }
+else
+{swal(result1," ","error")}
+}
+});
+}
+return false;
+});
+
+});
+ 

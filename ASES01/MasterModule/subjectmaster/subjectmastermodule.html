@@ -1,0 +1,296 @@
+﻿<html>
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title> subjectmaster module</title>
+<link rel="stylesheet" href="../../css/allinterface.css" type="text/css" /> 
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script src="../../lib/sweet-alert.js"></script>
+<link rel="stylesheet" type="test/css" href="../../lib/sweet-alert.css"> 
+	<script src="../../js/jquery-latest.js"></script>
+	<script src="script_subject_master.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../jquery.confirm/jquery.confirm.css" />
+	
+	<link rel="stylesheet" href="../../jquery.confirm/jquery.confirm.css" type="text/css" />
+     <script type="text/javascript" src="../../jquery.confirm/jquery.js"></script>
+        <script type="text/javascript" src="../../jquery.confirm/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../jquery.confirm/confirm.js"></script>
+<script>
+ 
+$.ajax({
+        url:"counter_subject_master.php",
+        type:"POST",
+        data:{},
+        success:function(data){
+          data++;
+            $('#subject_id').val(data);
+			 }
+});            
+    
+function showTable(str) {
+  if (str.length==0) { 
+    document.getElementById("viewTable").innerHTML="";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("viewTable").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("POST","view1_subject_master.php",true);
+
+
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send();
+
+}
+
+function populateCourse()
+    {
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() 
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+          {
+            document.getElementById("course_id").innerHTML=xmlhttp.responseText;
+          }
+        }
+      
+      xmlhttp.open("POST","PopulateCourse.php",true);
+      
+      xmlhttp.send();
+    }
+    function populateBranch(course_id) 
+    {
+		$('#loaderImg').show();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() 
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+          {
+            document.getElementById("branch_id").innerHTML=xmlhttp.responseText;
+			$('#loaderImg').hide();
+		  }
+        }
+      
+      xmlhttp.open("POST","PopulateBranch.php",true);
+      xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      xmlhttp.send("course_id="+course_id);
+    }
+    function populateSemester(course_id) 
+    {
+		$('#loaderImg').show();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() 
+        {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200) 
+          {
+            document.getElementById("semester_id").innerHTML=xmlhttp.responseText;
+			$('#loaderImg').hide();
+		  }
+        }
+      
+      xmlhttp.open("POST","PopulateSemester.php",true);
+      xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      xmlhttp.send("course_id="+course_id);
+    }
+ 	 
+
+//  Edit click
+$(document).on('click','.info_edit',function(){
+    
+$('#loaderImg').show();
+var formload=1;
+ var subject_name = $(this).parent().parent().find('.subject_name').text();
+ var uni_sub_code = $(this).parent().parent().find('.uni_sub_code').text();
+ var subject_id = $(this).parent().parent().find('.subject_id').text();
+ var subject_abbriviation = $(this).parent().parent().find('.subject_abbriviation').text();
+ var max_marks = $(this).parent().parent().find('.max_marks').text();
+ var course_name = $(this).parent().parent().find('.course_name').text();
+ var branch_name = $(this).parent().parent().find('.branch_name').text();
+  var type1 = $(this).parent().parent().find('.type').text();
+ var is_elective = $(this).parent().parent().find('.is_elective').text();
+ var is_active = $(this).parent().parent().find('.is_active').text();
+  if(type1=="Theory")
+	{type=1;}
+else if(type1=="Practical")
+	{type=2;}
+ if(is_elective=="Yes")
+	{is_elective=1;}
+else if(is_elective=="No")
+	{is_elective=0;}
+ if(is_active=="Yes")
+	{is_active=1;}
+else if(is_active=="No")
+	{is_active=0;}
+ type = parseInt(type);	
+ is_elective = parseInt(is_elective); 
+ is_active = parseInt(is_active);
+ 
+ // putting values into form above
+ $('#subject_name').val(subject_name);
+$('#formLoad').val(formload);  
+ $('#subject_id').val(subject_id);
+ $('#subject_code').val(uni_sub_code);
+ $('#subject_abbreviation').val(subject_abbriviation);
+ $('#max_marks').val(max_marks);
+ $('#type').val(type);
+ if(is_elective==0)
+ {
+	// change is_active from 'yes'  to  'no'
+	var is_elective_code = "<input name='is_elective' class='is_elective' id='is_elective_yes' type='radio' value='V1' style='width: 19px;height:10px'/> &nbsp;YES&nbsp;<input name='is_elective' class='is_elective' id='is_elective_no' checked type='radio' value='V1' style='width: 19px;height:10px'/> NO</td> ";
+	$('#is_elective_container').html(is_elective_code);
+ }else if(is_elective==1){
+	/*change to yes*/
+	var is_elective_code = "<input name='is_elective' class='is_elective' id='is_elective_yes' checked type='radio' value='V1' style='width: 19px;height:10px'/> &nbsp;YES&nbsp;<input name='is_elective' class='is_elective' id='is_elective_no' type='radio' value='V1' style='width: 19px;height:10px'/> NO</td> ";
+	$('#is_elective_container').html(is_elective_code);
+ }
+ if(is_active==0)
+ {
+	// change is_active from 'yes'  to  'no'
+	var is_active_code = "<input name='is_active' class='is_active' id='is_active_yes' type='radio' value='V1' style='width: 19px;height:10px'/> &nbsp;YES&nbsp;<input name='is_active' class='is_active' id='is_active_no' checked type='radio' value='V1' style='width: 19px;height:10px'/> &nbspNO</td>";
+	$('#is_active_container').html(is_active_code);
+ }else if(is_active==1){
+	/*change to yes*/
+	var is_active_code = "<input name='is_active' class='is_active' id='is_active_yes' checked type='radio' value='V1' style='width: 19px;height:10px'/> &nbsp;YES&nbsp;<input name='is_active' class='is_active' id='is_active_no' type='radio' value='V1' style='width: 19px;height:10px'/> NO</td>";
+	$('#is_active_container').html(is_active_code);
+ }
+ $.ajax({
+	url:"RePopulateCourse.php",
+	type:"POST",
+	data:{course_name:course_name},
+	success: function(data){
+			$('#course_id').html(data);
+	 
+		   $.ajax({
+				url:"RePopulateBranch.php",
+				type:"POST",
+				data:{course_name:course_name,branch_name:branch_name},
+				success:function(data){
+					  $('#branch_id').html(data);
+					  
+				}
+		   });
+           
+		   
+	}
+});
+$.ajax({
+				url:"RePopulateSemester.php",
+				type:"POST",
+				data:{subject_abbriviation:subject_abbriviation,course_name:course_name},
+				success:function(data){
+					  $('#semester_id').html(data);
+					  
+					 $('#loaderImg').hide();
+
+				}
+		   });
+
+});
+
+
+function call2()
+	   {	 
+			showTable("hello");
+			populateCourse();
+			 
+		}
+
+
+</script>
+</head>
+
+<body onload="call2();">
+
+
+<form method="POST">
+<div class="block1" style="height:150px;">
+    
+      <p>
+      <input class=" sbutton logout" style="" type="submit" value="Log Out" name="B1"></p>
+	 <h2 style=" font-size: 30px" style="text-align:center; padding-left:10%"> Assignment Submission and Evaluation System</h2>
+   <input class="ff"type="text" style=" margin-top:-25px; text-align:center; font-weight:bolder" value="Meerut Institute of Technology"/ >
+       <h3 style="text-align:center; font-size:24px; margin-top:-1px">SUBJECT  MASTER </h3>
+  </div>
+<br>
+<table class="block2">
+  
+	
+					<tr>
+				<td style="width:150px" >SUBJECT NAME</td>
+				<td><input name="subject_name" id="subject_name" /> </td>
+				<td >SUBJECT ID</td>
+				<td><input class="dis" name="subject_id" type="text" id="subject_id" DISABLED /></td>
+			</tr>
+			<tr>
+				<td >
+				SUBJECT CODE</td>
+				<td><input name="subject_code" id="subject_code"  /> </td>
+				<td style="width:150px" >SUBJECT ABBREVATION</td>
+				<td> <input name="subject_abbreviation" id="subject_abbreviation" /></td>
+			</tr>
+			<tr>
+				<td >COURSE</td>
+			<td>	<select name="course_id" id="course_id" onchange="populateBranch(this.value);populateSemester(this.value);" style="width:200px">
+					<option ></option>
+					<option value="course_id">Please Wait </option>
+					</select></td>
+				<td > BRANCH</td>
+				<td><select name="branch_id" id="branch_id" style="width:200px">
+					<option ></option>
+					<option value="branch_id">Please Wait </option>
+					</select></td>
+			</tr>
+			<tr>
+				<td >SEMESTER</td>
+		<td>		<select name="semester_id" id="semester_id" style="width:200px">
+					<option ></option>
+					<option value="semester_id">Please Wait </option>
+					</select></td>
+				<td >TYPE</td>
+				<td><select name="type" id="type" >
+				<option selected value="1">Theory</option>
+				<option value="2">Practical</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td >IS ELECTIVE</td>
+				<td style="width: 58px" id='is_elective_container'>
+    <input name="is_elective" class="is_elective" id="is_elective_yes" checked type="radio" value="V1" style="width: 19px;height:10px"/> &nbsp;YES&nbsp;
+    <input name="is_elective" class="is_elective" id="is_elective_no" type="radio" value="V1" style="width: 19px;height:10px"/> NO</td>
+ 
+				<td>MAXIMUM MARKS</td>
+				<td><input name="max_marks" id="max_marks" type="text"  /></td>
+			</tr>
+	<tr>			
+	<td>IS ACTIVE ?</td>
+	<td style="width: 58px" id='is_active_container'>
+    <input name="is_active" class="is_active" id="is_active_yes" type="radio" checked value="V1" style="width: 19px;height:10px"/> &nbsp;YES&nbsp;
+    <input name="is_active" class="is_active" id="is_active_no" type="radio" value="V1" style="width: 19px;height:10px"/> NO</td>
+
+			</tr>
+			<tr>
+	<td><input name="formLoad" id="formLoad" hidden></td>
+	
+	</tr>
+		</table>
+	<br>
+<div class="block3">
+<div class="resetallbutton">
+	<button class="sbutton">Back</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="sbutton" name="Reset1"  type="reset">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <button class=" sbutton" name="submit" type="submit" onclick=refreshTable(); id="submit" />
+      Submit
+      </button>
+  </div></div>
+<br>
+<br>
+<div class="block4" id="viewTable">
+</div><br>
+</form>
+</body>
+
+</html>

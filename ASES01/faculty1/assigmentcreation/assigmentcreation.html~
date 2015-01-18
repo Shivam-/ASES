@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>ASSIGNMENT CREATION &amp; </title>
+<link rel="stylesheet" href="../../css/home.css" />
+ <link rel="stylesheet" href="../../css/allinterface.css" type="text/css" /> 
+	  
+	    <link rel="stylesheet"  href="../../css/tabpane.css" type="text/css" /> 
+		<link rel="stylesheet" href="../../css/jquery-ui.css" />
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/jquery-latest.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/tabs.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/tabstyles.css" />
+  		<script src="../../js/modernizr.custom.js"></script>
+		<script src="../../lib/sweet-alert.min.js"></script>
+			<link rel="stylesheet" type="text/css" href="../../lib/sweet-alert.css">
+		   <script src="script_mcq_creation.js"></script>
+		
+		<link rel="stylesheet" href="../../css/jquery-ui.css">
+<link rel="stylesheet" href="../../css/tooltip.css">
+<script src="../../js/jquery.js"></script>
+<script src="../../js/jquery-ui.js"></script>
+<script src="../../js/tooltip.js"></script>
+         
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+	border: 2px solid #999999;
+	border-style: ridge;
+}
+.imgs:hover{
+cursor:pointer;
+}
+.imgs:active{
+padding:2px 2px;
+padding-top:-2px;
+cursor:pointer;
+background-color:#C0C0C0;
+
+}
+</style>
+<script>
+ function myFunction(elem)
+{  
+  if(elem.value==1)
+  {  if (elem.checked)
+    {
+		$('#checkbox_a1').val(1);
+		
+    }
+    else
+    {
+        $('#checkbox_a1').val(0);
+    }
+  }
+  if(elem.value==2)
+  {  if (elem.checked)
+    {
+		$('#checkbox_b1').val(1);
+		
+    }
+    else
+    {
+        $('#checkbox_b1').val(0);
+    }
+  }
+  if(elem.value==3)
+  {  if (elem.checked)
+    {
+		$('#checkbox_c1').val(1);
+		
+    }
+    else
+    {
+        $('#checkbox_c1').val(0);
+    }
+  }
+  if(elem.value==4)
+  {  if (elem.checked)
+    {
+		$('#checkbox_d1').val(1);
+		
+    }
+    else
+    {
+        $('#checkbox_d1').val(0);
+    }
+  }
+  if(elem.value==5)
+  {  if (elem.checked)
+    {
+		$('#is_true_false1').val(1);
+    }
+    else
+    {
+        $('#is_true_false1').val(0);
+    }
+  }
+}
+</script>
+
+<script>
+
+function addsub()
+{
+$(subpartadd).show();
+}
+function subremove()
+{
+$(subpartadd).hide();
+}
+function true_false(checkbox)
+{ 
+if(checkbox.checked)
+{
+$(tabletrue).show();
+$(tablemcq).hide();
+}
+else{
+$(tablemcq).show();
+$(tabletrue).hide();
+}
+}
+
+</script>
+<script>
+$.ajax({
+        url:"counter_ques.php",
+        type:"POST",
+        data:{},
+        success:function(data){
+          data++;
+            $('#ques_no').val(data);
+			 
+            
+        }
+       });
+	 
+</script>
+ 
+ </head>
+
+<body style="background-color: #C0C0C0" onload="true_false(document.getElementById('Checkbox1'));" >
+<form method="POST" enctype="multipart/form-data">
+<h2 align="center" style="font-style: normal; font-stretch: semi-expanded; font-size: 36px"> <u>Assignment Creation</u> </h2>
+
+<table  class="create" style="width:98%; margin-left:8%">
+	<tr>
+		
+	    <td style="width: 126px;  height:45px; padding-right:5px">FACULTY</td>
+		<td style="width:190px; height:45px">
+		<input name="Text6" type="text" class="dis" readonly="1" value="362/2 prem villa shivlok puri kanker khera meerut cantt" onMouseOver="this.title = this.value"  style="width: 130px; padding-right:5px" class="auto-style6"/>
+			</td>
+		
+		<td style="width: auto;  height:45px padding-right:5px">ASSIGNMENT ID </td>
+	<td style=" width:auto; height:45px; margin-top:-10%">	<select name="assignment_id" style="width:130px">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select></td>
+		<td style="width: auto; padding-right:5px">SUBJECT</td>
+	<td style="width:230px; height:45px">
+		<span style=" width:auto; height:45px; margin-top:-10%">
+	
+		</span>
+		<input name="Text8" type="text"  class="dis" readonly="1" value="362/2 prem villa shivlok puri kanker khera meerut cantt" onMouseOver="this.title = this.value" style="width: 130px; padding-right:5px" class="auto-style6"/>
+	  <span class="auto-style6">	  </span></td>
+	</tr>
+	<tr>
+		<td class="auto-style6" style="width: 126px">SUBMISSION&nbsp;DATE</td>
+	<td style="width: 190px; height:45px">
+		<input name="Text9" type="text"  class="dis" readonly="1"  onMouseOver="this.title = this.value"  style="width: 130px;  padding-right:5px" /></td>
+		<td class="auto-style6">ISSUE DATE</td>
+		<td style="width: auto; height:45px">
+		<input name="Text10"  class="dis" readonly="1"  onMouseOver="this.title = this.value" type="text"  style="width: 130px" /></td>
+		<td class="auto-style6">CREATION DATE</td>
+		<td style="width: auto; height:45px">
+		<input name="Text11"  class="dis" readonly="1"  onMouseOver="this.title = this.value"  style="width:130px; padding-right:5px" /></td>
+	</tr>
+	<tr>
+		<td style="width:126px">ASSIGNMENT TOPIC </td>
+		<td style="width:190px; height:45px">
+		<input name="Text6" type="text"  class="dis" readonly="1"  onMouseOver="this.title = this.value" style="width: 130px" class="auto-style6"/><span class="auto-style6">
+		</span>
+		
+		<td class="auto-style6">PASSING MARKS </td>
+		<td style="width: 168px">
+		<input name="Text14" type="text"  class="dis" readonly="1"  onMouseOver="this.title = this.value" style="width: 130px" class="auto-style6"/></td>
+		<td class="auto-style6" >MAXIMUM MARKS</td>
+		<td>
+		<input name="Text13" type="text"  class="dis" readonly="1"  onMouseOver="this.title = this.value" style="width: 130px;  padding-right:5px" class="auto-style6"/></td>
+	</tr>
+</table>
+<br />
+
+<div id="box">
+
+			<section>
+				<div class="tabs tabs-style-linemove">
+					<nav>
+						<ul>
+							<li><a href="#section-linemove-1" ><span>Descriptive</span></a></li>
+							<li><a href="#section-linemove-2" ><span>M.C.Q</span></a></li>
+						</ul>
+					</nav>
+					<div class="content-wrap">
+						<section  id="section-linemove-1">
+						                	  <table class="create" width="80%">
+	<tr>
+		<td style="width: 67px">Q. 
+		<input name="ques_no1" style="width: 30px; " type="text" /></td>
+		<td style="width:78%; ">
+		<textarea name="ques_text1"  style="width:100%; height:120px;margin-left:-15%" ></textarea></td>
+		
+	</tr>
+	</table>
+	
+	
+	
+<table  style="width:55%; height: 64px; margin-top:-155px; margin-left:45%">
+	<tr>
+				<td class="auto-style2" style="width: 925px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br />
+&nbsp;&nbsp;&nbsp; 
+				<table class="create" style="width: 45%; height: 131px;" align="right">
+			<tr>
+			<td class="auto-style1" style="width: 288px">&nbsp;&nbsp;&nbsp; 
+			IMAGE<br />
+				<input name="File1" style="width: 216px; height: 25px" type="file" class="auto-style7" />
+			
+			
+			<ul style="font-size: 12px; text-align:left">
+			<li> AcroRd32.exe  </li>
+			</ul>
+			<input class="sbutton"name="add_image" type="button" value="Add To Question" style="width:120px" /></td>
+			</tr>
+			
+		</table>	
+		</td>
+		</tr>
+		</table>
+		<br />
+		
+		
+		
+	<table align="center" style="margin-top:-35px; margin-left:61%">
+		<tr>
+		<td style="width:100px; text-align:right; margin-top:-50px">M.M&emsp;<input name="max_marks1" style="width:30px" type="text" /></p>
+	           		</td></tr>
+	  </table> 
+		
+		
+		<table width="60%"  style="margin-top:-1%; margin-left:15%">
+	<tr>
+		<td>
+		<table class="create" style="width: 100%">
+	<tr>
+		<td  style="width: 40px">
+		<input class="sbutton"  style="width: 80px" name="Button4" type="button" value="&lt; Part " /></td>
+		<td  style="width: 40px">
+		<input class="sbutton" id="subadd"  style="width: 80px"  type="button" value="Part &gt;" /></td>
+		<td  style="width: 40px">
+		<input class="sbutton"  style="width: 90px" name="next" type="button" value="&lt;&lt; Previous"  /></td>
+		<td >
+		<input class="sbutton"  style="width: 80px" name="next0" type="button" value="Next &gt;&gt;"  /></td>
+	</tr>
+	<tr>
+	<td  style="width: 40px">
+		<input class="sbutton" name="Reset1" style="width: 80px" type="reset" value="Reset" /></td>
+		
+		<td >
+		<input class="sbutton" name="submit" style="width: 80px" type="submit" id="submit" value="Submit" /></td>
+	</tr>
+</table>
+		
+		
+		
+		
+			</td>
+	</tr>
+		</table>		
+<table class="auto-style9" style="width: 100%">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+						
+						
+						</section>
+						<section id="section-linemove-2">
+						<table class="create" width="80%">
+	<tr>
+		<td style="width: 67px">Q. 
+		<input name="ques_no" id="ques_no" disabled style="width: 30px; " type="text" /></td>
+		<td style="width:78%; ">
+		<textarea name="ques_text" id="ques_text" style="width:100%; height:120px;margin-left:-15%"></textarea></td>
+		
+	</tr>
+	</table>
+	
+	
+	
+<table  style="width:55%; height: 64px; margin-top:-155px; margin-left:45%">
+	<tr>
+				<td class="auto-style2" style="width: 925px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br />
+&nbsp;&nbsp;&nbsp; 
+				<table class="create" style="width: 45%; height: 131px;" align="right">
+			<tr>
+			<td class="auto-style1" style="width: 288px">&nbsp;&nbsp;&nbsp; 
+			IMAGE<br />
+				<input name="File1" style="width: 216px; height: 25px" type="file" class="auto-style7" />
+			
+			
+			<ul style="font-size: 12px; text-align:left">
+			<li> AcroRd32.exe  </li>
+			</ul>
+			<input class="sbutton"name="add_image" type="button" value="Add To Question" style="width:120px" /></td>
+			</tr>
+			
+		</table>	
+		</td>
+		</tr>
+		</table>
+		<br />
+		
+		
+		
+	<table align="center" style="margin-top:-35px; margin-left:61%">
+		<tr>
+		<td style="width:100px; text-align:right; margin-top:-50px">M.M &nbsp <input name="max_marks" id="max_marks" style="width:30px" type="text" /></p>
+	           		</td></tr>
+	  </table> 
+		<table width="25%" style=" margin-top:-2%; padding-right:5%">
+		<tr> <td style="font-size:15px">IS TRUE/FALSE?&nbsp;
+	  <input id="is_true_false" type="checkbox" value=5 onclick="true_false(this);" onchange="myFunction(this);" /></td>
+	  <input name="testing_a" id="is_true_false1" type="text" hidden style="width:75%" />
+	  </tr>
+	  
+	  </table>
+	  
+	  
+	  
+	  <br />
+		<table id="tablemcq" class="auto-style1 createmcq" style="width: 70%; margin-left:17%; padding-left:5%; margin-top:-6%">
+	<tr>
+		<td id="checkbox_a_container">
+		A<input name="checkbox_a" id="checkbox_a" class="checkbox_a" type="checkbox" value=1 onchange="myFunction(this);" /><input name="option_a" id="option_a" type="text" style="width:75%" /></td>
+		<input name="testing_a" id="checkbox_a1" type="text" hidden style="width:75%" />
+		<td>B<input name="checkbox_b" id="checkbox_b" type="checkbox" class="checkbox_b" value=2 onchange="myFunction(this);" /><input name="option_b" id="option_b" type="text" style="width:75%" /></td>
+		<input name="testing_b" id="checkbox_b1" type="text" hidden style="width:75%" />
+	</tr>
+	<tr>
+		<td>
+		C<input name="checkbox_c" id="checkbox_c" type="checkbox" class="checkbox_c" value=3 onchange="myFunction(this);" /><input name="option_c" id="option_c" type="text" style="width:75%"  /></td>
+		<input name="testing_c" id="checkbox_c1" type="text" hidden style="width:75%" />
+		<td>D<input name="checkbox_d" id="checkbox_d" type="checkbox" class="checkbox_d" value=4 onchange="myFunction(this);" /><input name="option_d" id="option_d" type="text" style="width:75%"  /></td>
+		<input name="testing_d" id="checkbox_d1" type="text" hidden style="width:75%" />
+	</tr>
+</table>
+
+<table id="tabletrue" class="auto-style1 createmcq" style="width: 70%; margin-left:17%; padding-left:5%;margin-top:-6%; display:none;">
+	<tr>
+		<td>
+		<input checked="checked" name="radiobtn" type="radio" id="true" /> TRUE</td>
+		<td><input name="radiobtn" type="radio" id="false" />FALSE</td>
+	</tr>
+</table>
+		
+		
+	
+		<table class="create" align="center" style="width: 30%">
+	<tr>
+	
+		<td >
+		<input class="sbutton"  style="width: 85px" name="next" type="button" id="prev" value="&lt;&lt; Previous" /></td>
+		<td >
+		<input class="sbutton"  style="width: 60px" name="next0" type="button" id="next" value="Next &gt;&gt;" /></td>
+		<td >
+		<input class="sbutton"  style="width: 125px" name="next0" type="button" id="add_ques" value="Add Question (+)" /></td>
+		<td >
+		<input class="sbutton"  style="width: 145px" name="next0" type="button" id="rem_ques" value="Remove Question (-)" /></td>
+         <td>
+		<input class="sbutton" name="Reset1" style="width: 60px" type="reset" value="Reset" /></td>
+		
+		<td >
+		<input class="sbutton" name="Submit1" style="width: 60px" type="submit" id="mcq_submit" value="Submit" /></td>
+		</tr>
+</table>
+		
+		
+		
+
+						
+						
+						
+						
+						
+						</section>
+					
+					</div><!-- /content -->
+				</div><!-- /tabs -->
+			</section>
+			
+			<!-- Related demos -->
+			
+</div><!-- /container -->
+		
+		<script src="../../js/cbpFWTabs.js"></script>
+		<script>
+			(function() {
+
+				[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+					new CBPFWTabs( el );
+				});
+
+			})();
+		</script>
+
+			
+			
+			<br />
+			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /
+			<table>
+			</table>
+		
+	</form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,455 @@
+<html >
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Meerut Institute of Technology</title>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Meerut Institute of Technology</title>
+<link rel="stylesheet" href="../../css/allinterface.css" type="text/css" /> 
+<link rel="stylesheet" href="../../css/jquery-ui.css" />
+<script src="script_usermaster.js"></script>
+<script src="../../js/jquery-latest.js"></script>
+ <script src="../../lib/sweet-alert.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../lib/sweet-alert.css">   
+<script src="../../js/jquery.js"></script>
+<script src="../../js/jquery-ui.js"></script>
+<script src="../../js/date.js"></script>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="../../jquery.confirm/jquery.confirm.css" />
+<script type="text/javascript" src="../../jquery.confirm/jquery.js"></script>
+        <script type="text/javascript" src="../../jquery.confirm/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../jquery.confirm/confirm.js"></script>
+		
+<script>
+	 $.ajax({
+        url:"counter_user_master.php",
+        type:"POST",
+        data:{},
+        success:function(data){
+          data++;
+            $('#usr_id').val(data);
+			 
+            
+        }
+       });
+function showTable(str) {
+  if (str.length==0) { 
+    document.getElementById("viewTable").innerHTML="";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("viewTable").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("POST","view1_user_master.php",true);
+
+
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send();
+
+}
+ 
+ function refreshTable()
+{
+    $(document).ready(function()
+    { 
+           $.ajaxSetup(
+        {
+            cache: true,
+            beforeSend: function() {
+                $('#viewTable').hide();
+                $('#loaderImg').show();
+            },
+            complete: function() {
+                $('#loaderImg').hide();
+                $('#viewTable').show();
+            },
+            success: function() {
+                $('#loaderImg').hide();
+                $('#viewTable').show();
+            }
+			 
+        });
+        var $viewTable = $("#viewTable");
+        
+		var refreshId = $("#submit").click(function(){
+         
+            $viewTable.load('view1_user_master.php');
+			 
+        });
+         
+    })  ;
+}	
+ 
+	 
+	
+ 
+	 
+//  Edit click
+$(document).on('click','.info_edit',function(){
+    
+$('#loaderImg').show();
+var formload=1;
+var f_name3 = $(this).parent().parent().find('.f_name3').text(); 
+ var usr_id3 = $(this).parent().parent().find('.usr_id3').text();
+ var mather_name3 = $(this).parent().parent().find('.mather_name3').text(); 
+ var usr_password3 = $(this).parent().parent().find('.usr_password3').text();
+ var father_name3 = $(this).parent().parent().find('.father_name3').text();
+ var usr_mail3 = $(this).parent().parent().find('.usr_mail3').text();
+ var date_of_joining3 = $(this).parent().parent().find('.date_of_joining3').text();
+ var dept_id3 = $(this).parent().parent().find('.dept_id3').text(); 
+ var usr_type_id3 = $(this).parent().parent().find('.usr_type_id3').text();
+ var date_of_birth3 = $(this).parent().parent().find('.date_of_birth3').text();
+ var c_pincode3 = $(this).parent().parent().find('.c_pincode3').text();
+ var p_pincode3 = $(this).parent().parent().find('.p_pincode3').text();
+ var c_country_id3 = $(this).parent().parent().find('.c_country_id3').text(); 
+ var c_city_id3 = $(this).parent().parent().find('.c_city_id3').text();
+ var c_state_id3 = $(this).parent().parent().find('.c_state_id3').text();
+ var p_country_id3 = $(this).parent().parent().find('.p_country_id3').text();
+ var p_city_id3 = $(this).parent().parent().find('.p_city_id3').text();
+ var p_state_id3 = $(this).parent().parent().find('.p_state_id3').text(); 
+ var c_addr_line3 = $(this).parent().parent().find('.c_addr_line3').text();
+ var p_addr_line3 = $(this).parent().parent().find('.p_addr_line3').text();
+ var l_name3 = $(this).parent().parent().find('.l_name3').text();
+ var m_name3 = $(this).parent().parent().find('.m_name3').text();
+ 
+ var is_active3 = $(this).parent().parent().find('.is_active3').text();
+ if(is_active3=="Yes")
+	{is_active3=1;}
+else if(is_active3=="No")
+	{is_active3=0;}
+  
+ is_active3 = parseInt(is_active3);
+ 
+ // putting values into form above
+
+
+ $('#clg_name').val(college_name3);
+$('#formLoad').val(formload);  
+
+ 
+ $('#usr_id').val(usr_id3);
+ $('#mather_name').val(mather_name3);
+ $('#usr_password').val(usr_password3);
+ $('#usr_type_id').val(usr_type_id3);
+ $('#date_of_joining').val(date_of_joining3);
+ $('#usr_mail').val(usr_mail3);
+ $('#dept_id').val(dept_id3);
+ $('#date_of_birth').val(date_of_birth3);
+ $('#f_name').val(f_name3);
+ $('#p_city_id').val(p_city_id3);
+ $('#c_addr_line').val(c_addr_line3);
+ $('#p_state_id').val(p_state_id3);
+ $('#p_addr_line').val(p_addr_line3);
+ $('#m_name').val(m_name3);
+ $('#l_name').val(l_name3);
+ $('#father_name').val(father_name3);
+ $('#p_country_id').val(p_country_id3);
+ $('#c_country_id').val(c_country_id3);
+ $('#c_city_id').val(c_city_id3);
+ $('#c_pincode').val(c_pincode3);
+ $('#c_state_id').val(c_state_id3);
+ $('#p_pincode').val(p_pincode3);
+ 
+ 
+ if(is_active3==0)
+ {
+	// change is_active from 'yes'  to  'no'
+	var is_active_code = "<input id='is_active_yes'   class='is_active'  type='radio' name='is_active' value='1' style='margin-left:-60px; margin-right:-60px; height:15px'  />YES<input type='radio' checked class='is_active' id='is_active_no' name='is_active' value='0' style='margin-left:-60px; margin-right:-60px; height:15px'/>NO";
+	$('#is_active_container').html(is_active_code);
+ }else if(is_active3==1){
+	// change to yes
+	var is_active_code = "<input id='is_active_yes'  checked class='is_active'  type='radio' name='is_active' value='1'  style='margin-left:-60px; margin-right:-60px; height:15px'  />YES<input type='radio' class='is_active' id='is_active_no' name='is_active' value='0' style='margin-left:-60px; margin-right:-60px; height:15px'/>NO";
+	$('#is_active_container').html(is_active_code);
+ }
+ // Send a ajax request to fetch country, state and city
+ 
+
+});
+ 
+
+	
+	function call2()
+	   {	
+			showTable("hello");
+			 refreshTable();
+		}
+function address_same(address_checkbox)
+{
+if(address_checkbox.checked)
+{
+c_addr_line.value=p_addr_line.value;
+c_country_id.value=p_country_id.value;
+c_state_id.value=p_state_id.value;
+c_city_id.value=p_city_id.value;
+c_pincode.value=p_pincode.value;
+}
+
+}
+</script>
+		
+		
+	
+<style type="text/css">
+.auto-style1 {
+	text-align: right;
+}
+.auto-style2 {
+	text-align: left;
+}
+</style>
+
+</head>
+
+<body onload=call2();>
+
+<div class="block1" style="height:150px;">
+    <form method="POST" action="--WEBBOT-SELF--">
+      <p>
+      <input class=" sbutton logout" style="" type="submit" value="Log Out" name="B1"></p>
+	  <h2 style=" font-size: 30px" style="text-align:center; padding-left:10%"> Assignment Submission and Evaluation System</h2>
+   <input class="ff"type="text" style=" margin-top:-25px; text-align:center; font-weight:bolder" value="Meerut Institute of Technology"/ >
+       <h3 style=" text-align:center; font-size:24px; margin-top:-1px">User Master </h3></form>
+  </div>
+  <br />
+ 
+<table class="block2" style="border:thick">
+  			<tr>
+				<td class="auto-style6" style="width: 150px">FIRST NAME
+				</td>
+				<td class="auto-style7" style="width: 153px">
+				<input name="f_name" id="f_name" type="text" style="width: 136px"></td>
+				
+				<td style="width: 87px">MIDDLE NAME</td>
+				<td> 
+							<input name="m_name" id="m_name" type="text" style="width: 137px"></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">LAST NAME
+				</td>
+				<td class="auto-style7" style="width: 153px"> 
+							<input name="l_name" id="l_name" type="text" style="width: 137px"></td>
+			
+				<td style="width: 87px">MOTHER'S NAME</td>
+				<td> 
+							<input name="mather_name" id="mather_name" type="text" style="width: 137px"></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">FATHER'S NAME
+				</td>
+				<td class="auto-style7" style="width: 153px"> 
+							<input name="father_name" id="father_name" type="text" style="width: 137px"></td>
+			
+				<td style="width: 87px">EMAIL-ID</td>
+				<td> 
+							<input name="usr_mail" id="usr_mail" type="text" style="width: 137px"></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">PASSWORD
+				</td>
+				<td class="auto-style7" style="width: 153px">
+				<input name="usr_password" id="usr_password"type="password" style="width: 137px"></td>
+				
+				<td style="width: 87px">DATE OF BIRTH</td>
+				<td><input name="date_of_birth" id="date_of_birth" type="text" class="datepicker"   style="width: 137px"/></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">DATE OF JOINING</td>
+				<td class="auto-style7" style="width: 153px">
+	<input name="date_of_joining" id="date_of_joining" type="text" class="datepicker"   style="width: 137px"></td>
+					<td style="width: 87px">USER TYPE</td>
+				<td>
+				<select name="usr_type_id" id="usr_type_id" style="height: 22px; width: 135px;">
+					<option>student</option>
+					<option>faculty</option>
+					<option>admin</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>IS ACTIVE ?</td>
+	<td style="width: 58px">
+    <input name="is_active" type="radio" value="V1" style="width: 19px;height:10px"/> &nbsp;YES&nbsp;
+    <input name="is_active" type="radio" value="V1" style="width: 19px;height:10px"/> NO</td>
+
+				<td class="auto-style7" style="height: 14px; width: 87px">
+				DEPARTMENT</td>
+				<td style="height: 14px">
+				<select name="dept_name" id="dept_name" style="height: 22px; width: 132px;">
+					
+					<option>computer science</option>
+					<option>mechnaical</option>
+					
+					</select></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">UPLOAD IMAGE&nbsp;&nbsp;&nbsp;
+				</td>
+				<td class="auto-style7" style="width: 153px">
+				<input class="auto-style10" name="File1" style="width: 218px" type="file"></td>
+				<td style="width: 87px">&nbsp;USER ID</td>
+				<td>
+				
+					<input name="usr_id" id="usr_id" class="dis" style="width: 137px"></td>
+							</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px; height: 34px;">
+				</td>
+				<td class="auto-style1" style="width: 153px; height: 34px;">&nbsp;
+				</td>
+				<td style="width: 87px; height: 34px;" class="auto-style1" align="right">&nbsp;</td>
+				<td style="height: 34px" align="right" class="auto-style2">
+				
+					<strong>Address&nbsp;same</strong><input name="address_checkbox" style="width: 12px; height: 0px" onClick="address_same(this);" type="checkbox"></td>
+							</tr>
+			<tr>
+				<td class="auto-style6" style="height: 37px; width: 150px"> 
+			<strong>&emsp;&emsp;PERMANENT </strong> </td>
+				<td class="auto-style7" style="width: 153px; height: 37px">
+				<strong>ADDRESS</strong></td>
+				
+				<td class="auto-style7" style="height: 37px; width: 87px">
+				<strong>
+				CORRESPONDING </strong></td>
+				<td class="auto-style7" style="height: 37px" ><strong>ADDRESS</strong></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">ADDRESS LINE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				<td class="auto-style7" style="width: 153px"> 	<input id="p_addr_line" type="text"  style="width: 210px" ></td>
+			
+				<td class="auto-style7" style="width: 87px">ADDRESS LINE</td>
+				<td class="auto-style7" style="width: 153px"> 						
+				<input  type="text" id="c_addr_line" style="width: 210px"></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">COUNTRY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				<td class="auto-style7" style="width: 153px">
+					<select id="p_country_id">
+					
+					<option>INDIA</option>
+					<option>USA</option>
+					<option>AUSTRALIA</option>
+					<option>SOUTH AFRICA</option>
+					<option>PAKISTAN</option>
+					<option>CHINA</option>
+					<option>NEPAL</option>
+					<option>BHUTAN</option>
+					</select></td>
+				
+				<td class="auto-style7" style="width: 87px">COUNTRY</td>
+				<td class="auto-style7" style="width: 153px">
+					<select id="c_country_id">
+					
+					<option>INDIA</option>
+					<option>USA</option>
+					<option>AUSTRALIA</option>
+					<option>SOUTH AFRICA</option>
+					<option>PAKISTAN</option>
+					<option>CHINA</option>
+					<option>NEPAL</option>
+					<option>BHUTAN</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">STATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				<td class="auto-style7" style="width: 153px"><select id="p_state_id" style="height: 22px">
+					
+					<option>UTTAR PRADESH</option>
+					<option>LUCKNOW</option>
+					</select></td>
+				
+				<td class="auto-style7" style="width: 87px">STATE</td>
+				<td class="auto-style7" style="width: 153px">
+				<select id="c_state_id" style="height: 22px">
+					
+					<option>UTTAR PRADESH</option>
+					<option>LUCKNOW</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">CITY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				&nbsp;&nbsp;</td>
+				<td class="auto-style7" style="width: 153px"><select id="p_city_id" style="height: 22px">
+					
+					<option>MEERUT</option>
+					<option>GUJRAT</option>
+					<option>NOIDA</option>
+					<option>DELHI</option>
+					<option>GAZIABAD</option>
+					</select></td>
+				
+				<td class="auto-style7" style="width: 87px">CITY&nbsp;&nbsp;</td>
+				<td class="auto-style7" style="width: 153px">
+				<select id="c_city_id" style="height: 22px">
+					
+					<option>MEERUT</option>
+					<option>GUJRAT</option>
+					<option>NOIDA</option>
+					<option>DELHI</option>
+					<option>GAZIABAD</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px">PINCODE
+				</td>
+				<td class="auto-style7" style="width: 153px"> <input id="p_pincode" type="text" style="width: 108px">
+				
+					</td>
+				<td class="auto-style7" style="width: 87px">PINCODE</td>
+				<td class="auto-style7" style="width: 153px"> 
+				<input id="c_pincode" type="text" style="width: 108px"></td>
+			</tr>
+			<tr>
+				<td class="auto-style6" style="width: 150px; height: 21px"></td>
+				<td class="auto-style7" style="width: 153px; height: 21px">
+				</td>
+				<td style="width: 87px; height: 21px">
+				</td>
+				<td class="auto-style7" style="width: 147px; height: 21px"></td>
+				<td class="auto-style7" style="width: 153px; height: 21px"></td>
+			</tr>
+			
+	
+	</table>
+	
+<br>
+
+<div class="block3">
+<div class="resetallbutton">
+		<a class="but" href="#confirm"><button class="sbutton">Back</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="sbutton" name="Reset1"  type="reset">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+	<button class=" sbutton" name="submit" type="submit" id="submit" />Submit</button></p>
+   </div></div>
+
+<br>
+
+<div class="block4" id="viewTable">
+</div><br>
+
+
+
+<div id="confirm" class="confirmBox">
+<h1>Exit Confirmation</h1>
+<p>You are about to exit this page. <br />Do you want to Continue?</p>
+<div id="confirmButtons">
+<a class="button blue" href="../../home/home.html">
+Yes
+<span></span></a>
+<a id="no" class="button gray" href="#">
+No
+<span></span></a>
+
+</div></div>	
+
+</body>
+
+</html>

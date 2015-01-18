@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Assignment Creation </title>
+	<script >
+	 
+function showTable(str) {
+  if (str.length==0) { 
+    document.getElementById("viewTable").innerHTML="";
+    return;
+  }
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("viewTable").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("POST","view1_assignment_table.php",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send();
+}
+
+	function call2()
+	   {	
+			showTable("hello");
+			 //create_table();
+		}
+	
+	/*function create_table()
+		{   alert("create click");
+			var $viewTable = $("#viewTable");
+        
+				var refreshId = $("#create").click(function(){
+         
+					$viewTable.load("../assigmentcreation/assigmentcreation.html");
+		}*/
+</script>
+ 
+</head>
+
+<body onload=call2();>
+<div class="block4" id="viewTable" >
+</div><br>
+</form>
+</body>
+
+</html>

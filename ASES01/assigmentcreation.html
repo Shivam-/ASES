@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>ASSIGNMENT SUBMISSION &amp; EVALUATI</title>
+<link rel="stylesheet" href="css/home.css" />
+ <link rel="stylesheet" href="css/allinterface.css" type="text/css" /> 
+	  
+	    <link rel="stylesheet"  href="css/tabpane.css" type="text/css" /> 
+		<link rel="stylesheet" href="css/jquery-ui.css" /> 
+           <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/pop_up.js"></script>
+		<script src="js/date.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/tabs.css" />
+		<link rel="stylesheet" type="text/css" href="css/tabstyles.css" />
+  		<script src="js/modernizr.custom.js"></script>
+         
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+	border: 2px solid #999999;
+	border-style: ridge;
+}
+.imgs:hover{
+cursor:pointer;
+}
+.imgs:active{
+padding:2px 2px;
+padding-top:-2px;
+cursor:pointer;
+background-color:#C0C0C0;
+
+}
+</style>
+
+<script>
+
+function addsub()
+{
+$(subpartadd).show();
+}
+function subremove()
+{
+$(subpartadd).hide();
+}
+function true_false(checkbox)
+{
+if(checkbox.checked)
+{
+$(tabletrue).show();
+$(tablemcq).hide();
+}
+else{
+$(tablemcq).show();
+$(tabletrue).hide();
+}
+}
+
+</script>
+         
+</head>
+
+<body style="background-color: #C0C0C0" onload="true_false(document.getElementById('Checkbox1'));" >
+
+<h2 align="center" style="font-style: normal; font-stretch: semi-expanded; font-size: 36px"> <u>Assignment Creation</u> </h2>
+<table  class="create" style="width:98%; margin-left:8%">
+	<tr>
+		
+	    <td style="width: 126px;  height:45px; padding-right:5px">FACULTY</td>
+		<td style="width:190px; height:45px">
+		<input name="Text6" type="text" style="width: 130px; padding-right:5px" class="auto-style6"/>
+		<span class="imgs" style="margin-left:5px;"><img width="20" src="images/expand.jpg"/></span>		</td>
+		 
+		<td style="width: auto;  height:45px padding-right:5px">ASSIGNMENT ID </td>
+	<td style=" width:auto; height:45px; margin-top:-10%">	<select name="assignment_id" style="width:130px">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select></td>
+		<td style="width: auto; padding-right:5px">SUBJECT</td>
+	<td style="width:230px; height:45px">
+		<span style=" width:auto; height:45px; margin-top:-10%">
+	
+		</span>
+		<input name="Text8" type="text" DISABLED style="width: 130px; padding-right:5px" class="auto-style6"/><span class="imgs" style="margin-left:5px;"><img width="20" src="images/expand.jpg"/></span>
+	  <span class="auto-style6">	  </span></td>
+	</tr>
+	<tr>
+		<td class="auto-style6" style="width: 126px">SUBMISSION&nbsp;DATE</td>
+	<td style="width: 190px; height:45px">
+		<input name="Text9" type="text" class="datepicker"  style="width: 130px;  padding-right:5px" /></td>
+		<td class="auto-style6">ISSUE DATE</td>
+		<td style="width: auto; height:45px">
+		<input name="Text10" type="text" class="datepicker"  style="width: 130px" /></td>
+		<td class="auto-style6">CREATION DATE</td>
+		<td style="width: auto; height:45px">
+		<input name="Text11" class="datepicker" style="width:130px; padding-right:5px" /></td>
+	</tr>
+	<tr>
+		<td style="width:126px">ASSIGNMENT TOPIC </td>
+		<td style="width:190px; height:45px">
+		<input name="Text6" type="text" DISABLED style="width: 130px" class="auto-style6"/><span class="auto-style6">
+		</span>
+		<span class="imgs" style="margin-left:5px;"><img width="20" src="images/expand.jpg"/></span>
+		<td class="auto-style6">PASSING MARKS </td>
+		<td style="width: 168px">
+		<input name="Text14" type="text" DISABLED style="width: 130px" class="auto-style6"/></td>
+		<td class="auto-style6" >MAXIMUM MARKS</td>
+		<td>
+		<input name="Text13" type="text" DISABLED style="width: 130px;  padding-right:5px" class="auto-style6"/></td>
+	</tr>
+</table>
+<br />
+
+<div id="box">
+
+			<section>
+				<div class="tabs tabs-style-linemove">
+					<nav>
+						<ul>
+							<li><a href="#section-linemove-1" ><span>Descriptive</span></a></li>
+							<li><a href="#section-linemove-2" ><span>M.C.Q</span></a></li>
+						</ul>
+					</nav>
+					<div class="content-wrap">
+						<section  id="section-linemove-1">
+						                	  <table class="create" width="80%">
+	<tr>
+		<td style="width: 67px">Q. 
+		<input name="Text1" style="width: 30px; " type="text" /></td>
+		<td style="width:78%; ">
+		<textarea name="TextArea1" style="width:100%; height:120px;margin-left:-15%"></textarea></td>
+		
+	</tr>
+	</table>
+	
+	
+	
+<table  style="width:55%; height: 64px; margin-top:-155px; margin-left:45%">
+	<tr>
+				<td class="auto-style2" style="width: 925px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br />
+&nbsp;&nbsp;&nbsp; 
+				<table class="create" style="width: 45%; height: 131px;" align="right">
+			<tr>
+			<td class="auto-style1" style="width: 288px">&nbsp;&nbsp;&nbsp; 
+			IMAGE<br />
+				<input name="File1" style="width: 216px; height: 25px" type="file" class="auto-style7" />
+			
+			
+			<ul style="font-size: 12px; text-align:left">
+			<li> AcroRd32.exe  </li>
+			</ul>
+			<input class="sbutton"name="add_image" type="button" value="Add" style="width:40px" /></td>
+			</tr>
+			
+		</table>	
+		</td>
+		</tr>
+		</table>
+		<br />
+		
+		
+		
+	<table align="center" style="margin-top:-35px; margin-left:61%">
+		<tr>
+		<td style="width:100px; text-align:right; margin-top:-50px">M.M&emsp;<input name="Text2" style="width:30px" type="text" /></p>
+	           		</td></tr>
+	  </table> 
+		
+		<table id="subpartadd" class="create" style="width:95%; margin-top:-5%; margin-left:5%; display:none;">
+		<tr>
+		<td style="width: 0px">Q. 
+		<input name="Text1" style="width: 30px; " type="text" /></td>
+		<td>
+		<textarea name="TextArea1" style="width:100%; height:120px;margin-left:-48%"></textarea>
+		</td>
+		</tr>
+		</table>
+		
+		<table width="60%"  style="margin-top:-1%; margin-left:15%">
+	<tr>
+		<td>
+		<table class="create" style="width: 100%">
+	<tr>
+		<td  style="width: 40px">
+		<input class="sbutton"  style="width: 80px" name="Button4" type="button" value="&lt; Part " /></td>
+		<td  style="width: 40px">
+		<input class="sbutton" id="subadd"  style="width: 80px"  type="button" value="Part &gt;" onclick="addsub();" /></td>
+		<td  style="width: 40px">
+		<input class="sbutton"  style="width: 90px" name="next" type="button" value="&lt;&lt; Previous" onclick="subremove();" /></td>
+		<td >
+		<input class="sbutton"  style="width: 80px" name="next0" type="button" value="Next &gt;&gt;" onclick="subremove();" /></td>
+	</tr>
+	<tr>
+		<td  style="width: 40px">
+		<input class="sbutton"  style="width: 80px" name="next" type="button" value="&lt; SubPart" /></td>
+		<td >
+		<input class="sbutton"  style="width: 80px" name="next0" type="button" value="SubPart &gt;" /></td>
+		<td  style="width: 40px">
+		<input class="sbutton" name="Reset1" style="width: 80px" type="reset" value="Reset" /></td>
+		
+		<td >
+		<input class="sbutton" name="Submit1" style="width: 80px" type="submit" value="Submit" /></td>
+	</tr>
+</table>
+		
+		
+		
+		
+			</td>
+	</tr>
+		</table>		
+<table class="auto-style9" style="width: 100%">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+						
+						
+						</section>
+						<section id="section-linemove-2">
+						<table class="create" width="80%">
+	<tr>
+		<td style="width: 67px">Q. 
+		<input name="Text1" style="width: 30px; " type="text" /></td>
+		<td style="width:78%; ">
+		<textarea name="TextArea1" style="width:100%; height:120px;margin-left:-15%"></textarea></td>
+		
+	</tr>
+	</table>
+	
+	
+	
+<table  style="width:55%; height: 64px; margin-top:-155px; margin-left:45%">
+	<tr>
+				<td class="auto-style2" style="width: 925px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br />
+&nbsp;&nbsp;&nbsp; 
+				<table class="create" style="width: 45%; height: 131px;" align="right">
+			<tr>
+			<td class="auto-style1" style="width: 288px">&nbsp;&nbsp;&nbsp; 
+			IMAGE<br />
+				<input name="File1" style="width: 216px; height: 25px" type="file" class="auto-style7" />
+			
+			
+			<ul style="font-size: 12px; text-align:left">
+			<li> AcroRd32.exe  </li>
+			</ul>
+			<input class="sbutton"name="add_image" type="button" value="Add" style="width:40px" /></td>
+			</tr>
+			
+		</table>	
+		</td>
+		</tr>
+		</table>
+		<br />
+		
+		
+		
+	<table align="center" style="margin-top:-35px; margin-left:61%">
+		<tr>
+		<td style="width:100px; text-align:right; margin-top:-50px">M.M&emsp;<input name="Text2" style="width:30px" type="text" /></p>
+	           		</td></tr>
+	  </table> 
+		<table width="25%" style=" margin-top:-2%; padding-right:5%">
+		<tr> <td style="font-size:15px">IS TRUE/FALSE..&nbsp;
+	  <input id="Checkbox1" type="checkbox" onclick="true_false(this);" /></td>
+	  </tr>
+	  
+	  </table>
+	  
+	  
+	  
+	  <br />
+		<table id="tablemcq" class="auto-style1 createmcq" style="width: 70%; margin-left:17%; padding-left:5%; margin-top:-6%">
+	<tr>
+		<td>
+		A<input name="option" type="radio" value="a"  /><input name="Text1" type="text" style="width:75%" /></td>
+		<td>B<input name="option" type="radio" value="b" /><input name="Text2" type="text" style="width:75%" /></td>
+	</tr>
+	<tr>
+		<td>
+		C<input name="option" type="radio" value="c" /><input name="Text3" type="text" style="width:75%"  /></td>
+		<td>D<input name="option" type="radio" value="d" checked="checked" /><input name="Text4" type="text" style="width:75%"  /></td>
+	</tr>
+</table>
+
+<table id="tabletrue" class="auto-style1 createmcq" style="width: 70%; margin-left:17%; padding-left:5%;margin-top:-6%; display:none;">
+	<tr>
+		<td>
+		<input checked="checked" name="radiobtn" type="radio" /> TRUE</td>
+		<td><input name="radiobtn" type="radio" />FALSE</td>
+	</tr>
+</table>
+		
+		
+	
+		<table class="create" align="center" style="width: 30%">
+	<tr>
+	
+		<td >
+		<input class="sbutton"  style="width: 85px" name="next" type="button" value="&lt;&lt; Previous" /></td>
+		<td >
+		<input class="sbutton"  style="width: 60px" name="next0" type="button" value="Next &gt;&gt;" /></td>
+         <td>
+		<input class="sbutton" name="Reset1" style="width: 60px" type="reset" value="Reset" /></td>
+		
+		<td >
+		<input class="sbutton" name="Submit1" style="width: 60px" type="submit" value="Submit" /></td>
+		</tr>
+</table>
+		
+		
+		
+
+						
+						
+						
+						
+						
+						</section>
+					
+					</div><!-- /content -->
+				</div><!-- /tabs -->
+			</section>
+			
+			<!-- Related demos -->
+			
+</div><!-- /container -->
+		
+		<script src="js/cbpFWTabs.js"></script>
+		<script>
+			(function() {
+
+				[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+					new CBPFWTabs( el );
+				});
+
+			})();
+		</script>
+
+			
+			
+			<br />
+			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /
+			<table>
+			</table>
+		
+	
+
+
+</body>
+
+</html>
